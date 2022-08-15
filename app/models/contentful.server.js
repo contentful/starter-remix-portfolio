@@ -117,6 +117,9 @@ async function getSingleBlog(slug) {
                 sys {
                   publishedAt
                 }
+                openGraphImage {
+                  url
+                }
               }
             }
     }

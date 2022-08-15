@@ -13,7 +13,8 @@ export const meta = ({data}) => {
 	const {seoMetadata} = data.page;
 	return {
 		title: seoMetadata.title,
-		description: seoMetadata.description
+		description: seoMetadata.description,
+		"og:image": `${seoMetadata.ogImage.url}`
 	}
 }
 

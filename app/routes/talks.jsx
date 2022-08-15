@@ -12,10 +12,11 @@ export async function loader() {
 }
 
 export const meta= ({data}) =>{
-	const {title, description, canonicalUrl} = data.page.seoMetadata
+	const {title, description, ogImage} = data.page.seoMetadata
 	return {
 		title,
-		description
+		description,
+		"og:image": `${ogImage.url}`
 	}
 }
 

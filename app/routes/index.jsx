@@ -4,6 +4,7 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { client } from "../models/contentful.server";
 import {FaGithub, FaLinkedin, FaTwitter, FaTwitch, FaYoutube} from 'react-icons/fa';
+import { MetaFunction } from "@remix-run/node";
 
 export async function loader(){
 	return json(await client.getPage("Corgi"))
@@ -13,7 +14,8 @@ export const meta = ({data}) => {
 	const {seoMetadata} = data;
 	return {
 		title: seoMetadata.title,
-		description: seoMetadata.description
+		description: seoMetadata.description,
+		"og:image": `${seoMetadata.ogImage.url}`
 	}
 }
 
