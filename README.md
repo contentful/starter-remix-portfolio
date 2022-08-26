@@ -1,53 +1,308 @@
-# Welcome to Remix!
+# Contentful Remix Portfolio Starter
 
-- [Remix Docs](https://remix.run/docs)
+Create your portfolio website powered by [Contentful](https://www.contentful.com/) and [Remix](https://remix.run)
 
-## Development
+## Demo
 
-From your terminal:
+[https://remix-contentful-starter.herokuapp.com/](https://remix-contentful-starter.herokuapp.com/)
 
-```sh
+![The homepage of the portfolio website](./docs/homepage.png 'The homepage of the portfolio website')
+
+## Features
+
+- Simple content model and structure. Easy to adjust to your needs.
+- Uses the [Contentful GraphQL API](https://www.contentful.com/developers/docs/references/graphql/) to fetch the content.
+- Uses the [rich-text-html-renderer](https://www.npmjs.com/package/@contentful/rich-text-html-renderer) to render Rich Text.
+
+## Quick Start
+
+Follow the steps mentioned below to set up and run the project quickly. For more detailed instructions, follow the steps mentioned in [Configuration](#configuration).
+
+### Step 1. Get the source code and install dependencies
+
+Run the following command in your terminal to clone the Contentful Remix stack.
+
+```bash
+npx create-remix@latest --template https://github.com/contentful/starter-remix-portfolio
+```
+
+Enter a name for your project, select your prefered language (TypeScript/JavaScript), and type Y to install the dependencies.
+
+You will get an output as follow:
+
+```bash
+npx create-remix@latest --template contentful/starter-remix-portfolio
+? Where would you like to create your app? corgi-portfolio
+? TypeScript or JavaScript? JavaScript
+? Do you want me to run `npm install`? Yes
+⠼ Creating your app…(⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂) ⠼ reify: timing arborist:ctor Completed
+npm WARN ERESOLVE overriding peer dependency
+...
+...
+```
+
+
+### Step 2. Set up the content model
+
+The stack comes with a Contentful set up command that imports the required content model and adds sample content to your space.
+
+The command asks you for a [Space ID](https://www.contentful.com/help/find-space-id/), and [Content Management API](https://www.contentful.com/developers/docs/references/content-management-api/) Access Token, and the [Conetnt Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) Access Token.
+
+Run the following command to set up the content model.
+
+When prompted, enter the above mentioned details in the terminal respectively.
+
+The output will be as follow:
+
+```bash
+...
+209 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+💿 Running remix.init script
+? Enter you Contentful Space ID SPACE_ID
+? Enter you Content Delivery API Key CONTENT_DELIVERY_KEY
+? Enter you Content Management Token CONTENT_MANAGEMENT_KEY
+Creating .env file...
+Updating files...
+Removing temporary files from disk.
+Running the setup script to import content model
+┌──────────────────────────────────────────────────┐
+│ The following entities are going to be imported: │
+├────────────────────────────────┬─────────────────┤
+│ Content Types                  │ 7               │
+├────────────────────────────────┼─────────────────┤
+│ Tags                           │ 0               │
+├────────────────────────────────┼─────────────────┤
+│ Editor Interfaces              │ 7               │
+├────────────────────────────────┼─────────────────┤
+│ Entries                        │ 29              │
+├────────────────────────────────┼─────────────────┤
+│ Assets                         │ 12              │
+├────────────────────────────────┼─────────────────┤
+│ Locales                        │ 1               │
+├────────────────────────────────┼─────────────────┤
+│ Webhooks                       │ 0               │
+└────────────────────────────────┴─────────────────┘
+(node:23674) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✔ Validating content-file
+  ✔ Initialize client (1s)
+  ...
+```
+
+
+### Step 3. Run it locally
+
+```bash
 npm run dev
 ```
 
-This starts your app in development mode, rebuilding assets on file changes.
+Navigate to `localhost:3000` to view the Portfolio.
 
-## Deployment
+## Configuration
 
-First, build your app for production:
+### Step 1. Create an account and a space on Contentful
 
-```sh
-npm run build
+First, [create an account on Contentful](https://www.contentful.com/sign-up/).
+
+After creating an account, create a new empty **space** from the [dashboard](https://app.contentful.com/) and assign to it any name of your liking.
+
+### Step 2. Create a content model
+
+The [content model](https://www.contentful.com/developers/docs/concepts/data-model/) defines the data structures of your application/websites. The structures are flexible and you can tailor them to your needs.
+
+For this example you need to create a content model that defines a blog, page, projects, role, SEO metadata, social link, and talks content type. **You can create them automatically by using this stack or by doing it manually** to familiarize yourself with the Contentful user interface.
+
+
+#### Create the content model manually
+
+##### Create a `Role` content type
+
+From your contentful space, go to **Content model** and add a new content type:
+
+- Give it the **Name** `Role`, the **Api Identifier** should be `role`
+
+Once the content model is saved, add these fields (you don't have to modify the settings unless specified):
+
+- `Role Title` - **Text** field (type **short text**).
+
+Save the content type and continue.
+
+##### Create a `Social Link` content type
+
+From your contentful space, go to **Content model** and add a new content type:
+
+- Give it the **Name** `Social Link`, the **Api Identifier** should be `socialLink`
+
+Once the content model is saved, add these fields (you don't have to modify the settings unless specified):
+
+- `Name` - **Text** field (type **Short text**).
+- `URL` - **Text** field (type **Short text**).
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Match a specific pattern_** and select ***URL*** from the dropdown list.
+
+Save the content type and continue.
+
+##### Create a `SEO MetaData` content type
+
+From your contentful space, go to **Content model** and add a new content type:
+
+- Give it the **Name** `SEO MetaData`, the **Api Identifier** should be `seoMetaData`
+
+Once the content model is saved, add these fields (you don't have to modify the settings unless specified):
+
+- `Title` - **Text** field (type **Short text**).
+- `OG Image` - **Media** field (type **One file**).
+- `Description` - **Text** field (type **Long text**).
+
+Save the content type and continue.
+
+##### Create a `Page` type
+
+From your contentful space, go to **Content model** and add another content type:
+
+- Give it the **Name** `Page`, the **Api Identifier** should be `page`
+
+Next, add these fields (you don't have to modify the settings unless specified):
+
+- `Title` - **Text** field (type **short text**).
+- `Roles` - **Refrences** field (type **Many references**)
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Accept only a specified number of entries_**, select ***Not more than*** from the dropdown list, and enter ***3*** in the input field.
+    - Under **Validation**, check **_Accept only specified entry type_** and select ***Role***.
+- `Links` - **Refrences** field (type **Many references**)
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Accept only specified entry type_** and select ***Social Link***.
+- `Description` - **Rich Text** field.
+- `SEO Metadata` - **Refrences** field (type **Single references**)
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Accept only specified entry type_** and select ***SEO MetaData***.
+
+Save the content type and continue.
+
+##### Create a `Blog` type
+
+From your contentful space, go to **Content model** and add another content type:
+
+- Give it the **Name** `Blog`, the **Api Identifier** should be `blog`
+
+Next, add these fields (you don't have to modify the settings unless specified):
+
+- `Title` - **Text** field (type **Short text**).
+- `Description` - **Text** field (type **Short text**).
+- `Blog Body` - **Rich Text** field.
+- `Publish Date` - **Date & time**
+    - Click on **Create and configure**.
+    - Click on the **Appearance** tab and select ***Date only*** from the **_Format_** dropdown list.
+- `slug` - **Text** field. 
+    - Click on **Create and configure**.
+    - Under **Appearance**, select **Slug** to display it as a slug of the `Title` field.
+- `Tags` - **Text** field (type **short text**)
+    - Select **List**.
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Accept only specified values_** and enter the values.
+    - Under **Appearance**, select **Checkbox**.
+- `Canonical URL` - **Text** field (type **Short text**)
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Match a specific pattern_** and select ***URL*** from the dropdown list.
+- `Open Graph Image` - **Media** field (type **Single file**).
+
+Save the content type and continue.
+
+##### Create a `Talks` type
+
+From your contentful space, go to **Content model** and add another content type:
+
+- Give it the **Name** `Talks`, the **Api Identifier** should be `talks`
+
+Next, add these fields (you don't have to modify the settings unless specified):
+
+- `Title` - **Text** field (type **Short text**).
+- `Description` - **Rich Text** field.
+- `Link` - **Text** field (type **Short text**)
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Match a specific pattern_** and select ***URL*** from the dropdown list.
+- `Type` - **Text** field (type **short text**)
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Accept only specified values_** and enter the values.
+    - Under **Appearance**, select **Dropdown**.
+- `Preview Image` - **Media** field (type **Single file**).
+
+Save the content type and continue.
+
+##### Create a `Projects` type
+
+From your contentful space, go to **Content model** and add another content type:
+
+- Give it the **Name** `Talks`, the **Api Identifier** should be `talks`
+
+Next, add these fields (you don't have to modify the settings unless specified):
+
+- `Title` - **Text** field (type **Short text**).
+- `Description` - **Rich Text** field.
+- `Preview Image` - **Media** field (type **Single file**).
+- `Link` - **Text** field (type **Short text**)
+    - Click on **Create and configure**.
+    - Under **Validation**, check **_Match a specific pattern_** and select ***URL*** from the dropdown list.
+- `Publish Date` - **Date & time**
+    - Click on **Create and configure**.
+    - Click on the **Appearance** tab and select ***Date only*** from the **_Format_** dropdown list.
+
+Save the content type and continue.
+
+
+### Step 3. Validate your content model
+
+After setting up the content model, it should look as follows.
+
+**Content model overview**
+
+![Content model overview](./docs/content-model-overview.png)
+
+### Step 4. Populate Content
+
+Go to the **Content** section in your space, then click on **Add entry** and select the **Social Link** content type:
+
+Do this for other content types as well.
+
+**Important:** For each entry and asset, you need to click on **Publish**. If not, the entry will be in draft state.
+
+![Published content entry](./docs/content-entry-publish.png)
+
+### Step 5. Set up environment variables
+
+From your contentful space, go to **Settings > API keys**. There will be an example Content delivery / preview token - you can use these API keys. (You may also create a new key.)
+
+Next, copy the `.env.example` file in this directory to `.env` (which will be ignored by Git):
+
+```bash
+cp .env.example .env
 ```
 
-Then run the app in production mode:
+Then set each variable on `.env`:
 
-```sh
-npm start
+- `CONTENTFUL_SPACE_ID` should be the **Space ID** field of your API Key
+- `CONTENTFUL_ACCESS_TOKEN` should be the **[Content Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/) - access token** field of your API key
+
+Your `.env` file should look like this:
+
+```bash
+CONTENTFUL_SPACE_ID=...
+CONTENTFUL_ACCESS_TOKEN=...
 ```
 
-Now you'll need to pick a host to deploy it to.
+### Step 6. Run in development mode
 
-### DIY
+```bash
+npm install
+npm run dev
 
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
+# or
 
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
-
-### Using a Template
-
-When you ran `npx create-remix@latest` there were a few choices for hosting. You can run that again to create a new project, then copy over your `app/` folder to the new project that's pre-configured for your target server.
-
-```sh
-cd ..
-# create a new project, and pick a pre-configured host
-npx create-remix@latest
-cd my-new-remix-app
-# remove the new project's app (not the old one!)
-rm -rf app
-# copy your app over
-cp -R ../my-old-remix-app/app app
+yarn install
+yarn dev
 ```
+
+Your app should be up and running on [http://localhost:3000](http://localhost:3000)!
