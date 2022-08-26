@@ -306,3 +306,93 @@ yarn dev
 ```
 
 Your app should be up and running on [http://localhost:3000](http://localhost:3000)!
+
+## Deploy
+
+Click on the button below to deploy your portfolio to Netlify.
+
+[![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/contentful/starter-remix-portfolio.git
+)
+
+**NOTE:** You'll have to configure the ***CONTENTFUL_SPACE_ID*** and ***CONTENTFUL_ACCESS_TOKEN*** values.
+
+You can also deploy manually, either via the Web app or the [CLI](https://www.netlify.com/products/dev/). Follow the instructions mentioned below to deploy to Netlify.
+
+
+### Using Netlify UI
+
+#### Step 1. Create and initialize a new GitHub repository
+
+Log in to your GitHub account and create a new empty repository. On your terminal run the following commands:
+
+```bash
+# Initialize the repo
+git init
+
+# Add the files to the staging
+git add .
+
+# Commit the changes
+git commit -m "first commit"
+
+# OPTIONAL: Change the default branch
+git branch -m main
+
+# Add the remote origin. Make sure to use the correct GitHub username and the repository name
+git remote add origin https://github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
+
+# Push the changes to the default branch
+git push -u origin main
+
+```
+
+#### Step 2. Configure and deploy site on Netlify
+
+1. Log in to your Netlify account and click on the ***Add new site*** or ***Import from Git*** button.
+2. Under the **Connect to Git provider** section, select ***GitHub*** and provide the required authorization.
+3. Select your newly created GitHub repository.
+4. Click on the ***Show advanced*** button and click on ***New variable***.
+5. Add the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` environment variables.
+6. Click on the ***Deploy site*** button.
+
+After the successful build, you will be able to view your site!
+
+### Using the CLI
+
+#### Step 1. Install and authorize the Netlify CLI
+
+1. In your terminal, run the following command to install the Netlify CLI.
+
+```bash
+npm i -g netlify-cli@latest
+```
+
+2. Log in to your Netlify account by running the following command.
+
+```bash
+netlify login
+```
+
+#### Step 2. Initialize and configure the site
+
+1. Create a new Netlify site by running this command:
+
+```bash
+netlify init
+```
+
+2. Use the below command to import the environment variables from the `.env` file.
+
+```bash
+netlify env:import .env
+```
+
+#### Step 3. Deploy to Netlify
+
+1. Build and deploy your portfolio using the following command.
+
+```bash
+netlify deploy --build --prod
+```
+
+After the successful build, you will be able to view your site!
