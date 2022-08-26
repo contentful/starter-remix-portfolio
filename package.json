@@ -12,6 +12,8 @@
     "start": "remix-serve build"
   },
   "dependencies": {
+    "@netlify/functions": "^1.0.0",
+    "@remix-run/netlify": "^1.7.0",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@remix-run/node": "^1.6.3",
     "@remix-run/react": "^1.6.3",
