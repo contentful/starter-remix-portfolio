@@ -4,7 +4,7 @@ Create your portfolio website powered by [Contentful](https://www.contentful.com
 
 ## Demo
 
-[https://remix-contentful-starter.herokuapp.com/](https://remix-contentful-starter.herokuapp.com/)
+[https://contentful-remix-portfolio.netlify.app/](https://contentful-remix-portfolio.netlify.app/)
 
 ![The homepage of the portfolio website](./docs/homepage.png 'The homepage of the portfolio website')
 
