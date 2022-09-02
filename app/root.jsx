@@ -39,10 +39,10 @@ export default function App() {
     </span>
     <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6 ">Read More</a>
+            <a href="https://www.contentful.com/remix-tutorial/" className="mr-4 hover:underline md:mr-6 ">Read More</a>
         </li>
         <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">GitHub</a>
+            <a href="https://github.com/contentful/starter-remix-portfolio" className="mr-4 hover:underline md:mr-6">GitHub</a>
         </li>
     </ul>
 </footer>
