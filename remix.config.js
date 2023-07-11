@@ -10,4 +10,8 @@ module.exports = {
   // assetsBuildDirectory: "public/build",
   // serverBuildPath: ".netlify/functions-internal/server.js",
   // publicPath: "/build/",
+  tailwind: true,
+  future: {
+    v2_routeConvention: true
+  }
 };
