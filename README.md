@@ -2,12 +2,6 @@
 
 Create your portfolio website powered by [Contentful](https://www.contentful.com/) and [Remix](https://remix.run)
 
-## Demo
-
-[https://contentful-remix-portfolio.netlify.app/](https://contentful-remix-portfolio.netlify.app/)
-
-![The homepage of the portfolio website](./docs/homepage.png 'The homepage of the portfolio website')
-
 ## Features
 
 - Simple content model and structure. Easy to adjust to your needs.
@@ -40,7 +34,6 @@ npm WARN ERESOLVE overriding peer dependency
 ...
 ...
 ```
-
 
 ### Step 2. Set up the content model
 
@@ -92,7 +85,6 @@ Running the setup script to import content model
   ...
 ```
 
-
 ### Step 3. Run it locally
 
 ```bash
@@ -114,7 +106,6 @@ After creating an account, create a new empty **space** from the [dashboard](htt
 The [content model](https://www.contentful.com/developers/docs/concepts/data-model/) defines the data structures of your application/websites. The structures are flexible and you can tailor them to your needs.
 
 For this example you need to create a content model that defines a blog, page, projects, role, SEO metadata, social link, and talks content type. **You can create them automatically by using this stack or by doing it manually** to familiarize yourself with the Contentful user interface.
-
 
 #### Create the content model manually
 
@@ -140,8 +131,8 @@ Once the content model is saved, add these fields (you don't have to modify the 
 
 - `Name` - **Text** field (type **Short text**).
 - `URL` - **Text** field (type **Short text**).
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Match a specific pattern_** and select ***URL*** from the dropdown list.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Match a specific pattern_** and select **_URL_** from the dropdown list.
 
 Save the content type and continue.
 
@@ -169,16 +160,16 @@ Next, add these fields (you don't have to modify the settings unless specified):
 
 - `Title` - **Text** field (type **short text**).
 - `Roles` - **Refrences** field (type **Many references**)
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Accept only a specified number of entries_**, select ***Not more than*** from the dropdown list, and enter ***3*** in the input field.
-    - Under **Validation**, check **_Accept only specified entry type_** and select ***Role***.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Accept only a specified number of entries_**, select **_Not more than_** from the dropdown list, and enter **_3_** in the input field.
+  - Under **Validation**, check **_Accept only specified entry type_** and select **_Role_**.
 - `Links` - **Refrences** field (type **Many references**)
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Accept only specified entry type_** and select ***Social Link***.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Accept only specified entry type_** and select **_Social Link_**.
 - `Description` - **Rich Text** field.
 - `SEO Metadata` - **Refrences** field (type **Single references**)
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Accept only specified entry type_** and select ***SEO MetaData***.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Accept only specified entry type_** and select **_SEO MetaData_**.
 
 Save the content type and continue.
 
@@ -194,19 +185,19 @@ Next, add these fields (you don't have to modify the settings unless specified):
 - `Description` - **Text** field (type **Short text**).
 - `Blog Body` - **Rich Text** field.
 - `Publish Date` - **Date & time**
-    - Click on **Create and configure**.
-    - Click on the **Appearance** tab and select ***Date only*** from the **_Format_** dropdown list.
-- `slug` - **Text** field. 
-    - Click on **Create and configure**.
-    - Under **Appearance**, select **Slug** to display it as a slug of the `Title` field.
+  - Click on **Create and configure**.
+  - Click on the **Appearance** tab and select **_Date only_** from the **_Format_** dropdown list.
+- `slug` - **Text** field.
+  - Click on **Create and configure**.
+  - Under **Appearance**, select **Slug** to display it as a slug of the `Title` field.
 - `Tags` - **Text** field (type **short text**)
-    - Select **List**.
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Accept only specified values_** and enter the values.
-    - Under **Appearance**, select **Checkbox**.
+  - Select **List**.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Accept only specified values_** and enter the values.
+  - Under **Appearance**, select **Checkbox**.
 - `Canonical URL` - **Text** field (type **Short text**)
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Match a specific pattern_** and select ***URL*** from the dropdown list.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Match a specific pattern_** and select **_URL_** from the dropdown list.
 - `Open Graph Image` - **Media** field (type **Single file**).
 
 Save the content type and continue.
@@ -222,12 +213,12 @@ Next, add these fields (you don't have to modify the settings unless specified):
 - `Title` - **Text** field (type **Short text**).
 - `Description` - **Rich Text** field.
 - `Link` - **Text** field (type **Short text**)
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Match a specific pattern_** and select ***URL*** from the dropdown list.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Match a specific pattern_** and select **_URL_** from the dropdown list.
 - `Type` - **Text** field (type **short text**)
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Accept only specified values_** and enter the values.
-    - Under **Appearance**, select **Dropdown**.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Accept only specified values_** and enter the values.
+  - Under **Appearance**, select **Dropdown**.
 - `Preview Image` - **Media** field (type **Single file**).
 
 Save the content type and continue.
@@ -244,14 +235,13 @@ Next, add these fields (you don't have to modify the settings unless specified):
 - `Description` - **Rich Text** field.
 - `Preview Image` - **Media** field (type **Single file**).
 - `Link` - **Text** field (type **Short text**)
-    - Click on **Create and configure**.
-    - Under **Validation**, check **_Match a specific pattern_** and select ***URL*** from the dropdown list.
+  - Click on **Create and configure**.
+  - Under **Validation**, check **_Match a specific pattern_** and select **_URL_** from the dropdown list.
 - `Publish Date` - **Date & time**
-    - Click on **Create and configure**.
-    - Click on the **Appearance** tab and select ***Date only*** from the **_Format_** dropdown list.
+  - Click on **Create and configure**.
+  - Click on the **Appearance** tab and select **_Date only_** from the **_Format_** dropdown list.
 
 Save the content type and continue.
-
 
 ### Step 3. Validate your content model
 
@@ -311,13 +301,11 @@ Your app should be up and running on [http://localhost:3000](http://localhost:30
 
 Click on the button below to deploy your portfolio to Netlify.
 
-[![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/contentful/starter-remix-portfolio.git
-)
+[![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/contentful/starter-remix-portfolio.git)
 
-**NOTE:** You'll have to configure the ***CONTENTFUL_SPACE_ID*** and ***CONTENTFUL_ACCESS_TOKEN*** values.
+**NOTE:** You'll have to configure the **_CONTENTFUL_SPACE_ID_** and **_CONTENTFUL_ACCESS_TOKEN_** values.
 
 You can also deploy manually, either via the Web app or the [CLI](https://www.netlify.com/products/dev/). Follow the instructions mentioned below to deploy to Netlify.
-
 
 ### Using Netlify UI
 
@@ -348,12 +336,12 @@ git push -u origin main
 
 #### Step 2. Configure and deploy site on Netlify
 
-1. Log in to your Netlify account and click on the ***Add new site*** or ***Import from Git*** button.
-2. Under the **Connect to Git provider** section, select ***GitHub*** and provide the required authorization.
+1. Log in to your Netlify account and click on the **_Add new site_** or **_Import from Git_** button.
+2. Under the **Connect to Git provider** section, select **_GitHub_** and provide the required authorization.
 3. Select your newly created GitHub repository.
-4. Click on the ***Show advanced*** button and click on ***New variable***.
+4. Click on the **_Show advanced_** button and click on **_New variable_**.
 5. Add the `CONTENTFUL_SPACE_ID` and `CONTENTFUL_ACCESS_TOKEN` environment variables.
-6. Click on the ***Deploy site*** button.
+6. Click on the **_Deploy site_** button.
 
 After the successful build, you will be able to view your site!
 
